@@ -1,0 +1,12 @@
+.form-check-input {
+  --checked-bg-color: #007bff;
+  --tick-color: #ffffff;
+  width: 23px;
+  height: 23px;
+  border-radius: 6px;
+}
+
+.form-check-input:checked {
+  background-color: var(--checked-bg-color);
+  border-color: var(--checked-bg-color);
+}

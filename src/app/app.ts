@@ -1,8 +1,9 @@
 import { Component, signal } from '@angular/core';
+import { Checkbox } from './components/checkbox/checkbox';
 
 @Component({
   selector: 'app-root',
-  imports: [],
+  imports: [Checkbox],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
