@@ -10,6 +10,7 @@ export class Checkbox {
   @Input() checked: boolean = false;
   @Input() checkedBgColor: string = '#007bff';
   @Input() tickColor: string = '#ffffff';
+  @Input() opacity: number = 1;
   @Output() checkedChange = new EventEmitter<boolean>();
 
   onChange(event: Event) {
