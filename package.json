@@ -5,6 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:gh": "ng build --configuration production --base-href /ellty-frontend/",
+    "deploy": "ng build --configuration production --base-href /ellty-frontend/ && angular-cli-ghpages --dir=dist/ellty-angular-app/browser",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
