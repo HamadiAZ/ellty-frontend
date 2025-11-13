@@ -7,6 +7,35 @@ import { Component, Input } from '@angular/core';
   styleUrl: './button.scss',
 })
 export class Button {
-  @Input() backgroundColor: string = '#FFCE22';
-  @Input() opacity: number = 1;
+  backgroundColor: string = '#FFCE22';
+  opacity: number = 1;
+  
+  isHovering = false;
+  isPressed = false;
+
+  get currentBackgroundColor(): string {
+    if (this.isPressed) {
+      return this.backgroundColor;
+    }
+    if (this.isHovering) {
+      return '#FFD84D';
+    }
+    return this.backgroundColor;
+  }
+
+  onMouseEnter(): void {
+    this.isHovering = true;
+  }
+
+  onMouseLeave(): void {
+    this.isHovering = false;
+  }
+
+  onMouseDown(): void {
+    this.isPressed = true;
+  }
+
+  onMouseUp(): void {
+    this.isPressed = false;
+  }
 }

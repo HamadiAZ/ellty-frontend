@@ -1,1 +1,8 @@
-<button [style.background-color]="backgroundColor" [style.opacity]="opacity">Done</button>
+<button 
+  [style.background-color]="currentBackgroundColor" 
+  [style.opacity]="opacity"
+  (mouseenter)="onMouseEnter()"
+  (mouseleave)="onMouseLeave()"
+  (mousedown)="onMouseDown()"
+  (mouseup)="onMouseUp()"
+>Done</button>
