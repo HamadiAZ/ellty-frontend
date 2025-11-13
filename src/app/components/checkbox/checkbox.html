@@ -3,6 +3,8 @@
   class="form-check-input"
   [checked]="isChecked"
   (click)="onClick($event)"
+  (mouseenter)="onMouseEnter()"
+  (mouseleave)="onMouseLeave()"
   [style.background-color]="backgroundColor"
   [style.background-image]="backgroundImage"
   [style.opacity]="opacity"

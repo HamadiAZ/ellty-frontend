@@ -30,9 +30,40 @@ export class Checkbox {
   ];
 
   currentIndex = 0;
+  isHovering = false;
+  hoverVariantIndex: number | null = null;
 
   get currentVariant(): CheckboxVariant {
     return this.variants[this.currentIndex];
+  }
+
+  get displayVariant(): CheckboxVariant {
+    if (this.hoverVariantIndex !== null) {
+      return this.variants[this.hoverVariantIndex];
+    }
+    return this.currentVariant;
+  }
+
+  onMouseEnter(): void {
+    const currentName = this.currentVariant.name;
+    if (currentName === 'variant1') {
+      this.hoverVariantIndex = 1; // variant2
+    } else if (currentName === 'variant7') {
+      this.hoverVariantIndex = 7; // variant8
+    } else if (currentName === 'variant5') {
+      this.hoverVariantIndex = 5; // variant6
+    }
+  }
+
+  onMouseLeave(): void {
+    this.hoverVariantIndex = null;
+
+    const currentName = this.currentVariant.name;
+    if (currentName === 'variant4') {
+      this.hoverVariantIndex = 4; // variant5
+    } else if (currentName === 'variant8') {
+      this.hoverVariantIndex = 8; // variant9
+    }
   }
 
   onClick(event: MouseEvent): void {
@@ -42,20 +73,20 @@ export class Checkbox {
   }
 
   get backgroundImage(): string {
-    if (!this.currentVariant.checked) return 'none';
-    const svg = `<svg width="19" height="12" viewBox="0 0 17 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.500008 6.572L6.0488 11.5072C6.06926 11.5254 6.10056 11.5237 6.11899 11.5035L16.14 0.500004" stroke="${this.currentVariant.tickColor}" stroke-linecap="round"/></svg>`;
+    if (!this.displayVariant.checked) return 'none';
+    const svg = `<svg width="19" height="12" viewBox="0 0 17 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.500008 6.572L6.0488 11.5072C6.06926 11.5254 6.10056 11.5237 6.11899 11.5035L16.14 0.500004" stroke="${this.displayVariant.tickColor}" stroke-linecap="round"/></svg>`;
     return `url("data:image/svg+xml,${encodeURIComponent(svg)}")`;
   }
 
   get opacity(): number {
-    return this.currentVariant.opacity;
+    return this.displayVariant.opacity;
   }
 
   get backgroundColor(): string {
-    return this.currentVariant.backgroundColor;
+    return this.displayVariant.backgroundColor;
   }
 
   get isChecked(): boolean {
-    return this.currentVariant.checked;
+    return this.displayVariant.checked;
   }
 }
