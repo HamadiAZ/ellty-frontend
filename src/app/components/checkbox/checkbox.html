@@ -1,9 +1,9 @@
 <input
   type="checkbox"
   class="form-check-input"
-  [checked]="checked"
-  (change)="onChange($event)"
-  [style.--checked-bg-color]="checkedBgColor"
+  [checked]="isChecked"
+  (click)="onClick($event)"
+  [style.background-color]="backgroundColor"
   [style.background-image]="backgroundImage"
   [style.opacity]="opacity"
   id="custom-checkbox"

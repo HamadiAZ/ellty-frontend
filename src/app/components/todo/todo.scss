@@ -1,0 +1,40 @@
+.todo {
+  /* Property 1=Default */
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 15px 8px 22px;
+  gap: 5px;
+
+  width: 370px;
+  height: 42px;
+
+  /* white */
+  background: #FFFFFF;
+
+  /* All pages */
+
+    margin: 0 auto;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 130%;
+    /* or 18px */
+    display: flex;
+    align-items: center;
+
+    /* Website color/Black */
+    color: #1F2128;
+
+
+
+
+}
+
+.todo-text {
+  flex: 1;
+}
